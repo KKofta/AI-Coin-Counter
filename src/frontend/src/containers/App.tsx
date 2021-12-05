@@ -15,7 +15,6 @@ function App() {
     const [predictions, setPredictions] = useState<Prediction[]>([]);
     const [uploadedImageUrl, setUploadedImageUrl] = useState<string>('');
     const [error, setError] = useState<string>('')
-    // const [imgEl, setImgEl] = useState<any>(null)
 
     const onFileChange = (event: any) => {
         setError('');
@@ -91,19 +90,19 @@ function App() {
                             {predictions.length > 0 && <h4><p>Predictions:</p></h4>}
                             {predictions.map(p => (
                                 p.probability > minProbability && (<div key={p.probability}>
-                                    Found {p.tagName} zł<br/>
+                                    {p.tagName === "1" && <div className="text-success">Found {p.tagName} zł</div>}
+                                    {p.tagName === "2" && <div className="text-danger">Found {p.tagName} zł</div>}
+                                    {p.tagName === "5" && <div className="text-primary">Found {p.tagName} zł</div>}
                                 </div>)
                             ))}
                             {predictions.length > 0 &&
-                            <div>
-                                Sum: {predictions.filter(a => a.probability > minProbability).reduce((sum, {tagName}: { tagName: string }) => sum + parseFloat(tagName), 0)}
+                            <div className="mt-2">
+                                <h5>Sum: {predictions.filter(a => a.probability > minProbability).reduce((sum, {tagName}: { tagName: string }) => sum + parseFloat(tagName), 0)} zł</h5>
                             </div>}
                         </Col>
                         {(uploadedImageUrl && predictions.length > 0) && <Row>
                             <Col style={{minHeight: "56vh"}}>
                                 {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
-                                {/*<img src={uploadedImageUrl} className="img-fluid mx-auto d-block" alt="Uploaded image"*/}
-                                {/*     ref={el => setImgEl(el)}/>*/}
                                 <Canvas uploadedImageUrl={uploadedImageUrl} predictions={predictions} width="700"
                                         height="700" minProbability={minProbability}/>
                             </Col>
