@@ -1,10 +1,11 @@
 import * as React from 'react'
-import {useEffect, useState} from 'react'
+import {useState} from 'react'
 import NavigationBar from "../components/NavigationBar";
 import {uploadImageToStorage} from "../api/azure_storage_api/azureStorageApiCalls";
 import {getPredictions, Prediction} from "../api/custom_vision_api/customVisionApiCalls";
 import {Col, Row, Spinner} from "reactstrap";
 import {FileUploadCard} from "../components/FileUploadCard";
+import Canvas from "../components/Canvas";
 
 function App() {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -12,7 +13,7 @@ function App() {
     const [predictions, setPredictions] = useState<Prediction[]>([]);
     const [uploadedImageUrl, setUploadedImageUrl] = useState<string>('');
     const [error, setError] = useState<string>('')
-    const [imgEl, setImgEl] = useState<any>(null)
+    // const [imgEl, setImgEl] = useState<any>(null)
 
     const onFileChange = (event: any) => {
         setError('');
@@ -70,26 +71,10 @@ function App() {
     //             let y = p.boundingBox.top * imgEl.height;
     //             let width = p.boundingBox.width * imgEl.width;
     //             let height = p.boundingBox.height * imgEl.height;
-    //             let ctx = imgEl.getContext('2d');
-    //
-    //             ctx.beginPath();
-    //             ctx.rect(x, y, width, height)
-    //             ctx.stroke();
+    //             console.log(x + " " + y + " " + width + " " + height)
     //         }
     //     }
     // }, [imgEl, predictions]);
-
-    useEffect(() => {
-        for (const p of predictions) {
-            if (p.probability > 0.85 && imgEl) {
-                let x = p.boundingBox.left * imgEl.width;
-                let y = p.boundingBox.top * imgEl.height;
-                let width = p.boundingBox.width * imgEl.width;
-                let height = p.boundingBox.height * imgEl.height;
-                console.log(x + " " + y + " " + width + " " + height)
-            }
-        }
-    }, [imgEl, predictions]);
 
     return (
         <div className="mb-3">
@@ -111,19 +96,22 @@ function App() {
                                 {error}
                             </div>}
                         </Col>}
+
+                        <Col className="align-self-center mb-3">
+                            {predictions.length > 0 && <h4><p>Predictions:</p></h4>}
+                            {predictions.map(p => (
+                                p.probability > 0.75 && (<div key={p.probability}>
+                                    Found {p.tagName} zł<br/>
+                                </div>)
+                            ))}
+                            Sum: {}
+                        </Col>
                         {(uploadedImageUrl && predictions.length > 0) && <Row>
-                            <Col className="col-6 d-flex flex-wrap align-items-center" style={{minHeight: "56vh"}}>
+                            <Col style={{minHeight: "56vh"}}>
                                 {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
-                                <img src={uploadedImageUrl} className="img-fluid mx-auto d-block" alt="Uploaded image"
-                                     ref={el => setImgEl(el)}/>
-                            </Col>
-                            <Col className="col-6 align-self-center">
-                                {predictions.length > 0 && <h4><p>Predictions:</p></h4>}
-                                {predictions.map(p => (
-                                    p.probability > 0.85 && (<div key={p.probability}>
-                                        tag name {p.tagName} <br/>
-                                    </div>)
-                                ))}
+                                {/*<img src={uploadedImageUrl} className="img-fluid mx-auto d-block" alt="Uploaded image"*/}
+                                {/*     ref={el => setImgEl(el)}/>*/}
+                                <Canvas uploadedImageUrl={uploadedImageUrl} predictions={predictions} width="700" height="700"/>
                             </Col>
                         </Row>}
                     </Row>
