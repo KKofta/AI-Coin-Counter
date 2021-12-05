@@ -7,7 +7,7 @@ import {Col, Row, Spinner} from "reactstrap";
 import {FileUploadCard} from "../components/FileUploadCard";
 import Canvas from "../components/Canvas";
 
-export const minProbability = 0.75;
+export const minProbability = 0.88;
 
 function App() {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -90,9 +90,9 @@ function App() {
                             {predictions.length > 0 && <h4><p>Predictions:</p></h4>}
                             {predictions.map(p => (
                                 p.probability > minProbability && (<div key={p.probability}>
-                                    {p.tagName === "1" && <div className="text-success">Found {p.tagName} zł</div>}
-                                    {p.tagName === "2" && <div className="text-danger">Found {p.tagName} zł</div>}
-                                    {p.tagName === "5" && <div className="text-primary">Found {p.tagName} zł</div>}
+                                    {p.tagName === "1" && <div className="text-success">Found: {p.tagName} zł</div>}
+                                    {p.tagName === "2" && <div className="text-danger">Found: {p.tagName} zł</div>}
+                                    {p.tagName === "5" && <div className="text-primary">Found: {p.tagName} zł</div>}
                                 </div>)
                             ))}
                             {predictions.length > 0 &&
