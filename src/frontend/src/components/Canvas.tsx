@@ -23,7 +23,7 @@ const Canvas = (props: any) => {
                 context.drawImage(img, 0, 0, img.width * l, img.height * l);
 
                 for (const p of props.predictions) {
-                    if (p.probability > 0.75) {
+                    if (p.probability > props.minProbability) {
                         let x = (p.boundingBox.left * img.width) * l;
                         let y = (p.boundingBox.top * img.height) * l;
                         let width = (p.boundingBox.width * img.width) * l;

@@ -7,6 +7,8 @@ import {Col, Row, Spinner} from "reactstrap";
 import {FileUploadCard} from "../components/FileUploadCard";
 import Canvas from "../components/Canvas";
 
+export const minProbability = 0.75;
+
 function App() {
     const [selectedFile, setSelectedFile] = useState(null);
     const [pendingApiCall, setPendingApiCall] = useState<boolean>(false);
@@ -64,18 +66,6 @@ function App() {
         });
     };
 
-    // useEffect(() => {
-    //     for (const p of predictions) {
-    //         if (p.probability > 0.85 && imgEl) {
-    //             let x = p.boundingBox.left * imgEl.width;
-    //             let y = p.boundingBox.top * imgEl.height;
-    //             let width = p.boundingBox.width * imgEl.width;
-    //             let height = p.boundingBox.height * imgEl.height;
-    //             console.log(x + " " + y + " " + width + " " + height)
-    //         }
-    //     }
-    // }, [imgEl, predictions]);
-
     return (
         <div className="mb-3">
             <NavigationBar/>
@@ -100,18 +90,22 @@ function App() {
                         <Col className="align-self-center mb-3">
                             {predictions.length > 0 && <h4><p>Predictions:</p></h4>}
                             {predictions.map(p => (
-                                p.probability > 0.75 && (<div key={p.probability}>
+                                p.probability > minProbability && (<div key={p.probability}>
                                     Found {p.tagName} zł<br/>
                                 </div>)
                             ))}
-                            Sum: {}
+                            {predictions.length > 0 &&
+                            <div>
+                                Sum: {predictions.filter(a => a.probability > minProbability).reduce((sum, {tagName}: { tagName: string }) => sum + parseFloat(tagName), 0)}
+                            </div>}
                         </Col>
                         {(uploadedImageUrl && predictions.length > 0) && <Row>
                             <Col style={{minHeight: "56vh"}}>
                                 {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
                                 {/*<img src={uploadedImageUrl} className="img-fluid mx-auto d-block" alt="Uploaded image"*/}
                                 {/*     ref={el => setImgEl(el)}/>*/}
-                                <Canvas uploadedImageUrl={uploadedImageUrl} predictions={predictions} width="700" height="700"/>
+                                <Canvas uploadedImageUrl={uploadedImageUrl} predictions={predictions} width="700"
+                                        height="700" minProbability={minProbability}/>
                             </Col>
                         </Row>}
                     </Row>
