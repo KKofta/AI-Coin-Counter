@@ -1,0 +1,11 @@
+{
+  "CustomVisionAPI": {
+    "Url": "*",
+    "PredictionKey": "*"
+  },
+  "AzureStorageApi": {
+    "SasToken" : "*",
+    "ContainerName" : "*",
+    "StorageAccountName" : "*"
+  }
+}
