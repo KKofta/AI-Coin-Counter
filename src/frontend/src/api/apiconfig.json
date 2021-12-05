@@ -4,8 +4,8 @@
     "PredictionKey": "*"
   },
   "AzureStorageApi": {
-    "SasToken" : "*",
-    "ContainerName" : "*",
-    "StorageAccountName" : "*"
+    "SasToken" : "sv=2020-08-04&ss=bfqt&srt=sco&sp=rwdlacupitfx&se=2022-12-05T19:44:59Z&st=2021-12-05T11:44:59Z&spr=https&sig=1Dg7VEWPL59y4p3A%2Fj4N9MdLpdLvMtt4Eq5LeCV%2BVzE%3D",
+    "ContainerName" : "imgcontainer",
+    "StorageAccountName" : "aicoincounterstorage"
   }
 }

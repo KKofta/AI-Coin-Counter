@@ -3,7 +3,7 @@ import * as React from "react";
 
 export const FileUploadCard = (props: any) => (
     <div>
-        <div className="my-3">Upload a photo of your coins</div>
+        <div className="mb-2 mt-3">Upload a photo of your coins</div>
         <FormGroup>
             <div className="mb-1">
                 <InputGroup>
@@ -13,7 +13,7 @@ export const FileUploadCard = (props: any) => (
                         name="file"
                         type="file"
                     />
-                    <Button type="submit" onClick={props.onFileUpload}>Upload</Button>
+                    <Button type="submit" onClick={props.onFileUpload} style={{backgroundColor: "#50A"}}>Upload</Button>
                 </InputGroup>
             </div>
             <div>
