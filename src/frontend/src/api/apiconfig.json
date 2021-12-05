@@ -1,7 +1,7 @@
 {
   "CustomVisionAPI": {
-    "Url": "*",
-    "PredictionKey": "*"
+    "Url": "https://northeurope.api.cognitive.microsoft.com/customvision/v3.0/Prediction/2fdfbfe3-3b3a-4a2f-8105-8db1482b2a5e/detect/iterations/Quick/url",
+    "PredictionKey": "7457d355ed6b4532bd8a00885b2e48d6"
   },
   "AzureStorageApi": {
     "SasToken" : "sv=2020-08-04&ss=bfqt&srt=sco&sp=rwdlacupitfx&se=2022-12-05T19:44:59Z&st=2021-12-05T11:44:59Z&spr=https&sig=1Dg7VEWPL59y4p3A%2Fj4N9MdLpdLvMtt4Eq5LeCV%2BVzE%3D",

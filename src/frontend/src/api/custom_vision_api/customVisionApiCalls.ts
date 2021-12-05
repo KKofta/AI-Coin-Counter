@@ -7,10 +7,18 @@ export function getPredictions(imageUrl: string) {
     return axios.post<PredictionsResponse>(config.CustomVisionAPI.Url, JSON.stringify({"Url": imageUrl}));
 }
 
+export interface BoundingBox {
+    left: number;
+    top: number;
+    width: number;
+    height: number;
+}
+
 export interface Prediction {
     probability: number;
     tagId: string;
     tagName: string;
+    boundingBox: BoundingBox;
 }
 
 export interface PredictionsResponse {
