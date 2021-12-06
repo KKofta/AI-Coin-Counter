@@ -82,13 +82,13 @@ Demo do zrobienia
 
 ## Screenshots
 
-- Screen1:
+- Przykładowe działanie:
 
-Średnio u mnie z monetami
+![Screen2](img/Screen2.png)
 
-- Screen2:
+- Przykładowe działanie:
 
-Średnio u mnie z monetami
+![Screen3](img/Screen3.png)
 
 ---
 
