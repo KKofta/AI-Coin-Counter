@@ -62,12 +62,12 @@ Diagram do zrobienia
 
 ## How does it work
 
-1. A user opens the web application (hosted in Azure App Service), then uploads a photo of some coins (Polish złoty) and
+1. A user opens the web application (hosted in `Azure App Service`), then uploads a photo of some coins (Polish złoty) and
    clicks the Upload button.
-2. The web application sends the image to Azure Blob Storage.
-3. Azure Blob Storage returns a url of the uploaded resource.
-4. The web application sends the image url to Custom Vision API.
-5. Custom Vision API returns predictions (detections).
+2. The web application sends the image to `Azure Blob Storage`.
+3. `Azure Blob Storage` returns a url of the uploaded resource.
+4. The web application sends the image url to `Custom Vision API`.
+5. `Custom Vision API` returns predictions (detections) of coins.
 6. The web application sums a total value of coins and presents it to the user.
 
 ---
