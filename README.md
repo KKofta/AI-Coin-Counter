@@ -30,7 +30,7 @@ The app was created as a 2-week project (no. 2) for a class "Introduction to app
 
 ## Used Dataset
 
-We created custom dataset of coin photos. We found some photos in the internet, but the vast majority of them were taken by ourselves. Because of that the size of the dataset was not very impressive. We have managed to gather XXX photos for our model.
+We created custom dataset of coin photos. We found some photos in the internet, but the vast majority of them were taken by ourselves. Because of that the size of the dataset was not very impressive. We have managed to gather 130 photos for our model.
 
 ---
 
