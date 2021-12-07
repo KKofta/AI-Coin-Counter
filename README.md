@@ -22,9 +22,9 @@
 
 ![Screen1](img/Screen1.png)
 
-AI coin counter app is a web application which enables users to upload photos of coins and then return to them total value of these coins. Due to the lack of a big enough dataset the only coins that are detected are polish zloty: 1zl, 2zl, 5zl. By doing this project we wanted to address a problem of people having trouble counting little coins manually. It is mainly directed to saleswomen and salemen for whom it ease tasks of counting money. Moreover, during COVID pandemic solution like this could potentially decrease the amount of contact between people, by eliminating the necessity of touching money after other person.
+AI coin counter app is a web application which enables users to upload photos of their coins and then return  the total value of these coins. Due to the lack of a big enough dataset, the only coins that are detected are polish zlotys: 1zl, 2zl, 5zl. By doing this project, we wanted to address a problem of people having trouble counting little coins manually. It is mainly directed to saleswomen and salesmen for whom it eases tasks of counting money. Moreover, during COVID pandemic solution like this could potentially decrease the amount of contact between people, by eliminating the necessity of touching money after other person.
 
-Tha app was created as a 2-week project (no. 2) for a class "Introduction to applications and solutions based on Artificial Intelligence". The theme of a project was to create an app which brings some innovation to this world and has a potential of bringing benefits for people.
+The app was created as a 2-week project (no. 2) for a class "Introduction to applications and solutions based on Artificial Intelligence". The theme of a project was to create an app which brings some innovation to this world and has a potential of bringing benefits for people.
 
 ---
 
