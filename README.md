@@ -76,7 +76,7 @@ Diagram do zrobienia
 
 See a demo (in polish):
 
-Demo do zrobienia
+[![Demo](img/Demo.png)](https://youtu.be/AXQhopmFx_0)
 
 ---
 
