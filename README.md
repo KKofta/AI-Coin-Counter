@@ -56,7 +56,7 @@ We created custom dataset of coin photos. We found some photos in the internet, 
 
 ## Architecture Diagram
 
-Diagram do zrobienia
+![Architecture](img/Diagram.png)
 
 ---
 
